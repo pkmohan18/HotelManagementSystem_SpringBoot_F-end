@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Bookings</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/homes.css">
+    <script src="https://kit.fontawesome.com/b97b14d6fa.js" crossorigin="anonymous"></script>
+</head>
+<body onload="displayBookings()">
+    <header class="nav-bar">
+        <div class="logo">
+            <a href="adminhome.html">
+                <h2>
+                    <i class="fa-solid fa-hotel"></i>
+                    HomeTown Hotel <sub style="font-size: medium;">(Admin)</sub>
+                </h2>
+            </a>
+        </div>
+        <div class="nav-items">
+            <ul>
+                <div class="li"><a href="adminhome.html">Home</a></div>
+                <div class="li"><a href="viewuser.html">Users</a></div>
+                <div class="li"><a href="addrooms.html">Rooms</a></div>
+                <div class="li"><a href="approve.html">Approve Bookings</a></div>
+                <div class="li"><a href="viewbooking.html">View Bookings</a></div>
+                <div class="li"><a href="contact.html">Contact Us</a></div>
+                <div class="li"><a href="about.html">About</a></div>
+            </ul>
+        </div>
+        <div class="sign">
+            <a onclick="logout()" class="button">Logout</a>
+        </div>
+    </header>
+    <div class="error"></div>
+    <main class="login">
+        <img src="/images/hotel1.jpg" alt="hotel" height="100%" width="100%">
+        <div class="disp-list" style="position: absolute;left: 10%;">
+            <table>
+                <thead>
+                <caption>All Bookings</caption>
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Room No</th>
+                    <th>User</th>
+                    <th>CheckIn Date</th>
+                    <th>CheckOut Date</th>
+                    <th>No. of days</th>
+                    <th>Total Bill</th>
+                    <th>Approve Status</th>
+                </tr>
+                </thead>
+                <tbody id="disp-booking"></tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="quick-li">
+            <h4>Quick Links</h4>
+            <hr style="margin: 5px 0;">
+            <ul type="none">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Rooms</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <p>Contact Us at:</p>
+            <hr style="margin: 5px 0;">
+            <a href="mailto:mohan@amiti.in">mohan@amiti.in</a> 
+        </div>
+    </footer>
+
+    <script src="/JS/adminhome.js"></script>
+    <script src="/JS/logout.js"></script>
+</body>
+</html>

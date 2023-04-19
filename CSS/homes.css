@@ -1,0 +1,19 @@
+.nav-bar {
+    padding: 5px 20px;;
+}
+
+.nav-items ul a, .logo a{
+    padding: 10px 15px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.login img{
+    opacity: 0.8;
+}
+
+.disp-list {
+    position: absolute;
+    left: 17%;
+}
+

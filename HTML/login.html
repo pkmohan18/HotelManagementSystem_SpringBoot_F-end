@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <script src="https://kit.fontawesome.com/b97b14d6fa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="logo">
+            <a href="index.html">
+                <h2>
+                    <i class="fa-solid fa-hotel"></i>
+                    HomeTown Hotel
+                </h2>
+            </a>
+        </div>
+        <div class="sign">
+            <a href="register.html" class="button">Register</a>
+        </div> 
+    </header>
+    <div class="error"></div>
+    <main class="login">
+        <img src="/images/hotel1.jpg" alt="hotel" height="100%" width="100%">
+        <div class="signin">
+            <form>
+                <fieldset>
+                  <legend>Login Here</legend>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="example@email.com" required><br><br>
+                  <label for="pass">Password:</label>
+                  <input type="password" name="pass" id="pass" placeholder="Enter password" required><br><br>
+                  <input type="submit" value="Login">
+                </fieldset>
+              </form>
+        </div>
+    </main>
+    <footer>
+        <div class="quick-li">
+            <h4>Quick Links</h4>
+            <hr style="margin: 5px 0;">
+            <ul type="none">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Rooms</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <p>Contact Us at:</p>
+            <hr style="margin: 5px 0;">
+            <a href="mailto:mohan@amiti.in">mohan@amiti.in</a> 
+        </div>
+    </footer>
+    <script src="/JS/login.js"></script>
+</body>
+</html>

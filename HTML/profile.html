@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/homes.css">
+    <script src="https://kit.fontawesome.com/b97b14d6fa.js" crossorigin="anonymous"></script>
+</head>
+<body onload="insertData()">
+    <header class="nav-bar">
+        <div class="logo">
+            <a href="userhome.html">
+                <h2>
+                    <i class="fa-solid fa-hotel"></i>
+                    HomeTown Hotel <sub style="font-size: medium;">(User)</sub>
+                </h2>
+            </a>
+        </div>
+        <div class="nav-items">
+            <ul>
+                <div class="li"><a href="userhome.html">Home</a></div>
+                <div class="li"><a href="profile.html">Profile</a></div>
+                <div class="li"><a href="viewrooms.html">Rooms</a></div>
+                <div class="li"><a href="viewmybooking.html">My Bookings</a></div>
+                <div class="li"><a href="#">Facilities</a></div>
+                <div class="li"><a href="#">Contact Us</a></div>
+                <div class="li"><a href="#">About</a></div>
+            </ul>
+        </div>
+        <div class="sign">
+            <a onclick="logout()" class="button">Logout</a>
+        </div>
+    </header>
+    <div class="error"></div>
+    <main class="login">
+        <img src="/images/hotel1.jpg" alt="hotel" height="100%" width="100%">
+        <div class="signup">
+            <form>
+                <fieldset>
+                  <legend>Update Details Here</legend>
+                  <label for="fname">First Name:</label>
+                  <input type="text" id="fname" name="fname" placeholder="Your Name.." required autofocus><br><br>
+                  <label for="lname">Last Name:</label>
+                  <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required><br><br>
+                  <label for="dob">Date of Birth:</label>
+                  <input type="date" id="dob" name="dob" required><br><br>
+                  <label for="gender">Gender:</label>
+                  <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                  </select><br><br>
+                  <label for="phno">Phone Number</label>
+                  <input type="number" name="phno" id="phno" placeholder="Phone no.." required maxlength="10"><br><br>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" placeholder="example@email.com" required readonly><br><br>
+                  <label for="pass">Password:</label>
+                  <input type="password" name="pass" id="pass" placeholder="password" required><br><br>
+                  <label for="conpass">Confirm Password:</label>
+                  <input type="password" name="conpass" id="conpass" placeholder="Re-enter password" required>
+                  <br><br>
+                  <input type="submit" value="Update" style="font-weight: 500;">
+                </fieldset>
+              </form>
+        </div>
+    </main>
+    <footer>
+        <div class="quick-li">
+            <h4>Quick Links</h4>
+            <hr style="margin: 5px 0;">
+            <ul type="none">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Rooms</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <p>Contact Us at:</p>
+            <hr style="margin: 5px 0;">
+            <a href="mailto:mohan@amiti.in">mohan@amiti.in</a> 
+        </div>
+    </footer>
+
+    <script src="/JS/userhome.js"></script>
+    <script src="/JS/logout.js"></script>
+
+</body>
+</html>
