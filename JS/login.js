@@ -17,29 +17,31 @@ function message(msg,suc=false) {
   }
 }
 
-function logIn() {
-  let users = localStorage.getItem("users")
-    ? JSON.parse(localStorage.getItem("users"))
-    : [];
-  for (let check of users) {
-    if (email.value == check.email && pass.value == check.pass) {
+async function logIn() {
+  let resp = await fetch("http://localhost:8080/user/getByEmail?email="+email.value);
+  if(resp.status==200){
+    let user = await resp.json();
+    if(user.password==pass.value){
       sessionStorage.setItem("email", email.value);
-      sessionStorage.setItem("fname",check.fname);
+      sessionStorage.setItem("fname",user.fname);
       sessionStorage.setItem("password", pass.value);
-      if(check.isAdmin){
+      if(user.isAdmin){
         message(`Admin Logged in successfully!...`,true);
         setTimeout(()=>location.href=("/html/adminhome.html"),1000);
         return
       }
       else{
-        message(`Hello ${check.fname}!. You've Logged in successfully!...`,true);
+        message(`Hello ${user.fname}!. You've Logged in successfully!...`,true);
         setTimeout(()=>location.href=("/html/userhome.html"),1000);
         return
       }
-    } else {
-      message("Invalid Email or Password!...");
-      
     }
+    else{
+      message("Wrong Password Try again!...");
+    }
+  } 
+  else {
+    message("Invalid Email or Password!...");
   }
 }
 

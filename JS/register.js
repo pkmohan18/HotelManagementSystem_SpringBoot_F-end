@@ -9,15 +9,31 @@ let conpass = document.querySelector("#conpass");
 let idType = document.getElementById("id-proof");
 let idNo = document.getElementById("id-proof-no");
 
-let users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
-
 let phPattern = /^[6-9]\d{9}$/;
 let emailPattern = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,3})$/;
 let passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#_]).{8,}$/;
 // ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$ 
+
 document.addEventListener("submit",(e)=>{
     e.preventDefault();
-    signUp();
+    if(!phno.value.match(phPattern)) {
+        message("Please enter a valid mobile number!...");
+    }
+    else if(!email.value.match(emailPattern)) {
+        message("Please enter a valid email address!...");
+    }
+    else if((pass.value).length<8) {
+        message("Password should be atleast 8 characters long!...");
+    }
+    else if(!pass.value.match(passPattern)) {
+        message("Password should be strong!...");
+    }
+    else if(!conpass.value.match(pass.value)) {
+        message("Password and confirm password should match!...");
+    }
+    else{
+        checkUser();
+    }
 });
 
 function message(msg,suc=false) {
@@ -32,58 +48,40 @@ function message(msg,suc=false) {
 }
 
 
-function signUp() {
-    if (validation()) {
-        users.push({
-            fname : fname.value,
-            lname : lname.value,
-            dob:dob.value,
-            gender:gender.value,
-            phno : phno.value,
-            email:email.value,
-            idType: idType.value,
-            idNo: idNo.value,
-            pass: pass.value,
-            conpass: conpass.value,
-            isAdmin: false,
-            noRooms: 0,
-          });
-          localStorage.setItem("users", JSON.stringify(users));
-          message("You've signed up successfully!",true);
-          setTimeout(()=>location.href=("/html/login.html"),2000);
-    }
+async function signUp() {
+    let user= {
+        fname : fname.value,
+        lname : lname.value,
+        dob:dob.value,
+        gender:gender.value,
+        phno : phno.value,
+        email:email.value,
+        idType: idType.value,
+        idNo: idNo.value,
+        password: pass.value,
+        con_password: conpass.value,
+        isAdmin: false,
+        noRooms: 0,
+        };
+        let resp = await fetch("http://localhost:8080/user/save",{
+        method :'POST',
+        headers : {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(user),
+        })
+
+        message("You've signed up successfully!",true);
+        setTimeout(()=>location.href=("/html/login.html"),1000);
 }
 
-function validation() {
-    if(!phno.value.match(phPattern)) {
-        message("Please enter a valid mobile number!...");
-        return false;
+async function checkUser(){
+    let resp = await fetch("http://localhost:8080/user/getByEmail?email="+email.value);
+    if(resp.status==200){
+        message("User already exists please login!...");
+        setTimeout(()=>location.href=("/html/login.html"),1000);
     }
-    else if(!email.value.match(emailPattern)) {
-        message("Please enter a valid email address!...");
-        return false;
-    }
-    else if((pass.value).length<8) {
-        message("Password should be atleast 8 characters long!...");
-        return false;
-    }
-    else if(!pass.value.match(passPattern)) {
-        message("Password should be strong!...");
-        return false;
-    }
-    else if(conpass.value.match(pass.value)) {
-        for(let data of users) {
-            if(email.value == data.email) {
-                message("You already have an account please login!...");
-                setTimeout(()=>location.href=("/html/login.html"),2000);
-                return false;
-            }
-        }
-    }
-
-    else{
-        message("Password and confirm password should match!...");
-        return false;
-    }
-    return true;
+    else
+        signUp();
 }

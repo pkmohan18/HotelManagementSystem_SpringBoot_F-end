@@ -37,32 +37,40 @@
     <div class="error"></div>
     <main class="login">
         <img src="/images/hotel1.jpg" alt="hotel" height="100%" width="100%">
-        <div class="signup">
+        <div class="signup" style="height: 60%;">
             <form>
                 <fieldset>
                   <legend>Update Details Here</legend>
-                  <label for="fname">First Name:</label>
-                  <input type="text" id="fname" name="fname" placeholder="Your Name.." required autofocus><br><br>
-                  <label for="lname">Last Name:</label>
-                  <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required><br><br>
-                  <label for="dob">Date of Birth:</label>
-                  <input type="date" id="dob" name="dob" required><br><br>
-                  <label for="gender">Gender:</label>
-                  <select name="gender" id="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
-                  </select><br><br>
-                  <label for="phno">Phone Number</label>
-                  <input type="number" name="phno" id="phno" placeholder="Phone no.." required maxlength="10"><br><br>
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" required readonly><br><br>
-                  <label for="pass">Password:</label>
-                  <input type="password" name="pass" id="pass" placeholder="password" required><br><br>
-                  <label for="conpass">Confirm Password:</label>
-                  <input type="password" name="conpass" id="conpass" placeholder="Re-enter password" required>
-                  <br><br>
-                  <input type="submit" value="Update" style="font-weight: 500;">
+                  <br>
+                  <div style="display: flex; justify-content: space-around;">  
+                    <div>
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname" placeholder="Your Name.." required autofocus><br><br>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required><br><br>
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required><br><br>
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="phno">Phone Number</label>
+                        <input type="number" name="phno" id="phno" placeholder="Phone no.." required maxlength="10"><br><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required readonly><br><br>
+                        <label for="pass">Password:</label>
+                        <input type="password" name="pass" id="pass" placeholder="new password" required><br><br>
+                        <label for="conpass">Confirm Password:</label>
+                        <input type="password" name="conpass" id="conpass" placeholder="Re-enter password" required>
+                        <br><br>
+                    </div>
+                  </div>
+                  <br>
+                  <input type="submit" value="Update Profile" style="font-weight: 500;"><br>
                 </fieldset>
               </form>
         </div>

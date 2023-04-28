@@ -29,39 +29,38 @@ function message(msg,suc=false) {
     }
 }
 
-function insertData(){
-    for(let user of users){
-        if(user.email==sessionStorage.getItem("email")){
-            fname.value=user.fname;
-            lname.value=user.lname;
-            dob.value=user.dob;
-            gender.value=user.gender;
-            phno.value=user.phno;
-            email.value=user.email;
-            pass.value=user.pass;
-            conpass.value=user.conpass;
-        }
-    }
+async function insertData(){
+    let resp = await fetch("http://localhost:8080/user/getByEmail?email="+sessionStorage.getItem("email"));
+    let user = await resp.json(); 
+    fname.value=user.fname;
+    lname.value=user.lname;
+    dob.value=user.dob;
+    gender.value=user.gender;
+    phno.value=user.phno;
+    email.value=user.email;
 }
 
-function updateProfile(){
+async function updateProfile(){
     if(validation()){
-        for(let user of users){
-            if(user.email==email.value){
-                user.fname=fname.value;
-                user.lname=lname.value;
-                user.dob=dob.value;
-                user.gender=gender.value;
-                user.phno=phno.value;
-                user.email=email.value;
-                user.pass=pass.value;
-                user.conpass=conpass.value;
-                localStorage.setItem("users",JSON.stringify(users));
-                message("User Updated Successfully!...",true);
-                setTimeout(()=>location.href="/html/userhome.html",2000);
-                break;
-            }
-        }
+        let resp = await fetch("http://localhost:8080/user/getByEmail?email="+email.value);
+        let user = await resp.json();
+        user.fname = fname.value;
+        user.lname = lname.value;
+        user.dob=dob.value;
+        user.gender=gender.value;
+        user.phno = phno.value;
+        user.password= pass.value;
+        user.con_password= conpass.value;
+        await fetch("http://localhost:8080/user/save",{
+            method :'POST',
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(user),
+            });
+        message("Profile Updated Successfully!...",true);
+        setTimeout(()=>location.href="/html/userhome.html",1000);
     }
 }
 

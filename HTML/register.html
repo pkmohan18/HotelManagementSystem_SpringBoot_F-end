@@ -29,38 +29,47 @@
             <form>
                 <fieldset>
                   <legend>New User Registeration Here</legend>
-                  <label for="fname">First Name:</label>
-                  <input type="text" id="fname" name="fname" placeholder="Your Name.." required autofocus><br><br>
-                  <label for="lname">Last Name:</label>
-                  <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required><br><br>
-                  <label for="dob">Date of Birth:</label>
-                  <input type="date" id="dob" name="dob" required><br><br>
-                  <label for="gender">Gender:</label>
-                  <select name="gender" id="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
-                  </select><br><br>
-                  <label for="phno">Phone Number</label>
-                  <input type="number" name="phno" id="phno" placeholder="Phone no.." required maxlength="10"><br><br>
-                  <label for="id-proof">Choose ID:</label>
-                  <select name="id-proof" id="id-proof" >
-                    <option value="aadhar">Aadhar</option>
-                    <option value="pan">Pan No</option>
-                    <option value="drive">DL</option>
-                    <option value="voter">Voter ID</option>
-                  </select>
                   <br>
-                  <input type="text" name="id-proof-no" id="id-proof-no" placeholder="Enter chosen ID No:" style="margin-left: 14.3vw;" required>
-                  <br><br>
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" required><br><br>
-                  <label for="pass">Password:</label>
-                  <input type="password" name="pass" id="pass" placeholder="password" required><br><br>
-                  <label for="conpass">Confirm Password:</label>
-                  <input type="password" name="conpass" id="conpass" placeholder="Re-enter password" required>
-                  <br><br>
-                  <input type="submit" value="Register" style="font-weight: 500;">
+                  <div style="display: flex; justify-content: space-around;">  
+                    <div>
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname" placeholder="Your Name.." required autofocus><br><br>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required><br><br>
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required><br><br>
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select><br><br>
+                        <label for="phno">Phone Number</label>
+                        <input type="number" name="phno" id="phno" placeholder="Phone no.." required maxlength="10"><br><br>
+                        </div>
+                      <div>
+                        <label for="id-proof">Choose ID:</label>
+                        <select name="id-proof" id="id-proof" >
+                            <option value="aadhar">Aadhar</option>
+                            <option value="pan">Pan No</option>
+                            <option value="drive">DL</option>
+                            <option value="voter">Voter ID</option>
+                        </select>
+                        <br><br>
+                        <label for="id-proof-no">Enter ID No:</label>
+                        <input type="text" name="id-proof-no" id="id-proof-no" placeholder="Enter chosen ID No:" required>
+                        <br><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required><br><br>
+                        <label for="pass">Password:</label>
+                        <input type="password" name="pass" id="pass" placeholder="password" required><br><br>
+                        <label for="conpass">Confirm Password:</label>
+                        <input type="password" name="conpass" id="conpass" placeholder="Re-enter password" required>
+                        <br><br>
+                      </div>
+                  </div>
+                  <br>
+                  <input type="submit" value="Register" style="font-weight: 500;"><br>
                 </fieldset>
               </form>
         </div>
